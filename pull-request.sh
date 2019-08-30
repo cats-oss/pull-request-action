@@ -111,10 +111,16 @@ main () {
     BRANCH=$(echo "${BRANCH/refs\/heads\//}")
     echo "Found branch $BRANCH"
 
+
+    echo "cats BRANCH is $BRANCH"
+    echo "cats PULL_REQUEST_BRANCH is $PULL_REQUEST_BRANCH"
+    
     # If it's to the target branch, ignore it
     if [[ "${BRANCH}" == "${PULL_REQUEST_BRANCH}" ]]; then
         echo "Target and current branch are identical (${BRANCH}), skipping."
     else
+    
+        echo "cats BRANCH_PREFIX is $BRANCH_PREFIX"
 
         # If the prefix for the branch matches
         if  [[ $BRANCH == ${BRANCH_PREFIX}* ]]; then
